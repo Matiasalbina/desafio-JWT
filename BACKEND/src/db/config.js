@@ -34,8 +34,8 @@ const insertData = async () => {
         if (count === 0) {
             await db.query(`
                 INSERT INTO usuarios (nombre, email, rol, lenguage) VALUES
-                    ('juan Martinez', 'juan.martinez@example.com', 'user', 'Ruby'),
-                    ('Felipe Gonzales', 'felipe.gonzales@example.com', 'admin', 'PHP')
+                    ('juan Martinez', 'juan.martinez@example.com', 'user', 'react'),
+                    ('Felipe Gonzales', 'felipe.gonzales@example.com', 'admin', 'node')
                 ON CONFLICT (email)
                 DO NOTHING;
             `);
@@ -48,13 +48,8 @@ const insertData = async () => {
     }
 };
 
-
-
-
 const initDB = async () => {
-    console.log('Creando tablas si no existen')
     await createTables()
-    console.log('Insertando datos si no existen')
     await insertData()
 }
 
